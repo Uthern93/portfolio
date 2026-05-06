@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio landing page for Uthern A/L Su Tin, software development and full-stack engineering.">
+  <title>Uthern | Full-Stack Developer</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="cursor-ring" data-cursor-ring aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#home" aria-label="Uthern home">
+      <span>Uthern</span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" data-nav-toggle>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Primary navigation" data-nav>
+      <a href="#work">Work</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section-band" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">Web Development & Full-Stack Engineering</p>
+        <h2>Building practical systems for business operations and digital workflows.</h2>
+        <p class="hero-lede">
+          Hi, I am Uthern. I build digital systems that make work easier.
+        </p>
+
+        <div class="hero-cues" aria-label="Development focus">
+          <span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 12 11 14 15.5 9.5"/><path d="M4 5h16v14H4z"/></svg>
+            Solve
+          </span>
+          <span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4 4 8v8l8 4 8-4V8z"/><path d="M12 12 4 8"/><path d="m12 12 8-4"/><path d="M12 12v8"/></svg>
+            Build
+          </span>
+          <span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 17 9 12l4 4 7-8"/><path d="M14 8h6v6"/></svg>
+            Improve
+          </span>
+        </div>
+
+        <div class="hero-actions" aria-label="Primary actions">
+          <a class="button button-primary" href="https://wa.link/ifyecs" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 11.95-4.95A7 7 0 0 1 8.8 18.3L5 19l.7-3.7A6.9 6.9 0 0 1 5 12z"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1-1"/></svg>
+            Contact Me
+          </a>
+          <a class="button button-secondary" href="assets/Uthern_Resume_2026.pdf" target="_blank" rel="noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 3v4a2 2 0 0 0 2 2h4"/><path d="M7 3h8l5 5v13H7z"/><path d="M11 13h5"/><path d="M11 17h5"/><path d="M11 9h1"/></svg>
+            Resume
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Abstract problem-solving animation">
+        <canvas id="systemCanvas" width="720" height="520"></canvas>
+        <div class="visual-label visual-label-api">Ideas</div>
+        <div class="visual-label visual-label-db">Solutions</div>
+        <div class="visual-label visual-label-ui">Growth</div>
+      </div>
+    </section>
+
+    <section class="quick-stats" aria-label="Career highlights">
+      <div>
+        <strong>2+ yrs</strong>
+        <span>Full-stack delivery</span>
+      </div>
+      <div>
+        <strong>Business systems</strong>
+        <span>Operational modules</span>
+      </div>
+      <div>
+        <strong>CI/CD</strong>
+        <span>GitLab, Jenkins, Bitbucket</span>
+      </div>
+      <div>
+        <strong>4 languages</strong>
+        <span>Malay, English, Mandarin, Thai</span>
+      </div>
+    </section>
+
+    <section class="content-section" id="work">
+      <div class="section-heading">
+        <p class="eyebrow">Experience</p>
+        <h2>Application work across product, operations, and integrations.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span>Feb 2026 - Current</span>
+            <strong>Tamarix Onesolutions Sdn. Bhd.</strong>
+          </div>
+          <div class="timeline-content">
+            <h3>Application Developer</h3>
+            <p>Delivered web applications, PWAs, and operational modules with CodeIgniter, Vue/Nuxt, and Laravel PHP.</p>
+            <ul>
+              <li>Integrated courier, microservice, and payment gateway APIs.</li>
+              <li>Handled continuous enhancements and bug fixes for end-user workflows.</li>
+              <li>Deployed to shared hosting while using GitHub for version control and collaboration.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span>Dec 2025 - Feb 2026</span>
+            <strong>Araken Sdn. Bhd.</strong>
+          </div>
+          <div class="timeline-content">
+            <h3>Web Developer, Contract</h3>
+            <p>Built full-stack web apps and PWAs using Vue/Nuxt, Laravel PHP, and GraphQL.</p>
+            <ul>
+              <li>Integrated SSO authentication, microservices, and payment gateways.</li>
+              <li>Created GitLab and Jenkins pipelines to improve release consistency.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-meta">
+            <span>Feb 2024 - Sep 2025</span>
+            <strong>Aafiyat Tech Sdn. Bhd.</strong>
+          </div>
+          <div class="timeline-content">
+            <h3>Executive, Programmer</h3>
+            <p>Developed payment, membership, event, eCommerce, and automation modules across frontend and backend stacks.</p>
+            <ul>
+              <li>Designed architecture and optimized backend performance for high-volume operations.</li>
+              <li>Created CI/CD pipelines with GitLab and Bitbucket.</li>
+              <li>Collaborated through development, testing, and maintenance of web and mobile applications.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section section-tint" id="skills">
+      <div class="section-heading">
+        <p class="eyebrow">Skills</p>
+        <h2>Stack coverage from interface delivery to backend architecture.</h2>
+      </div>
+
+      <div class="skill-grid">
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v10H4z"/><path d="M8 20h8"/><path d="M12 16v4"/></svg>
+          </div>
+          <h3>Frontend</h3>
+          <p>Vue.js, Nuxt.js, React.js, Angular, Bootstrap, Tailwind CSS, Material UI</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 4 4 8v8l8 4 8-4V8z"/><path d="M12 12 4 8"/><path d="m12 12 8-4"/><path d="M12 12v8"/></svg>
+          </div>
+          <h3>Backend</h3>
+          <p>CodeIgniter, Laravel PHP, REST APIs, GraphQL, microservices architecture</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M5 7c0-2 14-2 14 0v10c0 2-14 2-14 0z"/><path d="M5 7c0 2 14 2 14 0"/><path d="M5 12c0 2 14 2 14 0"/></svg>
+          </div>
+          <h3>Data & Systems</h3>
+          <p>MySQL, PostgreSQL, database design, system architecture, backend performance</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 7H7a5 5 0 0 0 0 10h2"/><path d="M15 7h2a5 5 0 0 1 0 10h-2"/><path d="M8 12h8"/></svg>
+          </div>
+          <h3>Integrations</h3>
+          <p>Business APIs, eCommerce, courier APIs, payment gateways, SSO authentication</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M6 4v6a6 6 0 0 0 12 0V4"/><path d="M6 20h12"/><path d="M12 16v4"/></svg>
+          </div>
+          <h3>Delivery</h3>
+          <p>GitHub, GitLab, Bitbucket, Jenkins, Bitbucket Pipelines, FTP deployment</p>
+        </article>
+        <article class="skill-card">
+          <div class="skill-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 0 0 5.4-5.4z"/><path d="m15 9 2 2"/></svg>
+          </div>
+          <h3>Tools</h3>
+          <p>Postman, SonarQube, Taiga, Putty, Figma, Canva</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section" id="projects">
+      <div class="section-heading">
+        <p class="eyebrow">Selected Projects</p>
+        <h2>Modules that improve automation, accuracy, and operational visibility.</h2>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <span>2026</span>
+          <h3>Warehouse Management System</h3>
+          <p>Led planning, database architecture, development, and deployment for warehouse fulfillment workflows including picking, packing, returns, and write-off modules.</p>
+          <div class="project-stack">
+            <strong>Stack</strong>
+            <span>ReactJS</span>
+            <span>Laravel PHP</span>
+            <span>MySQL</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <span>2025</span>
+          <h3>MOTAC Event Management System</h3>
+          <p>Collaborated with the team as backend and frontend developer to build a PWA-supported event management system for MOTAC.</p>
+          <div class="project-stack">
+            <strong>Stack</strong>
+            <span>Angular</span>
+            <span>NestJS</span>
+            <span>GraphQL</span>
+            <span>MySQL</span>
+            <span>PWA</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <span>2024</span>
+          <h3>Fulfillment Integration Modules</h3>
+          <p>Built courier integrations for DHL, NinjaVan, and Poslaju to automate airway bills and real-time delivery tracking from order creation to final delivery.</p>
+          <div class="project-stack">
+            <strong>Stack</strong>
+            <span>Laravel PHP</span>
+            <span>Blade</span>
+            <span>Courier APIs</span>
+            <span>MySQL</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <span>2024</span>
+          <h3>Digital Sales System</h3>
+          <p>Contributed full-stack modules that improved purchasing flow, API handling, automation, and scalability for digital sales operations.</p>
+          <div class="project-stack">
+            <strong>Stack</strong>
+            <span>React</span>
+            <span>Laravel PHP</span>
+            <span>Payment APIs</span>
+          </div>
+        </article>
+        <article class="project-card">
+          <span>2024</span>
+          <h3>Microservice Loyalty Program</h3>
+          <p>Developed a full microservice loyalty module covering backend logic, APIs, database design, reward calculation, validation, and frontend configuration interfaces.</p>
+          <div class="project-stack">
+            <strong>Stack</strong>
+            <span>Laravel PHP</span>
+            <span>Vue/Nuxt</span>
+            <span>REST APIs</span>
+            <span>Microservices</span>
+            <span>MySQL</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section compact-section" id="education">
+      <div class="section-heading">
+        <p class="eyebrow">Education</p>
+        <h2>Information technology foundation with strong academic performance.</h2>
+      </div>
+
+      <div class="education-list">
+        <article>
+          <h3>Bachelor of Information Technology (Hons)</h3>
+          <p>Open University Malaysia · Ongoing · CGPA 3.60</p>
+        </article>
+        <article>
+          <h3>Diploma in Information Technology</h3>
+          <p>Politeknik Sultan Abdul Halim Mu'adzam Shah · CGPA 3.93</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Available for full-stack development and business system work.</h2>
+      </div>
+      <div class="contact-actions">
+        <a class="contact-primary" href="https://wa.link/ifyecs" target="_blank" rel="noopener" aria-label="Contact on WhatsApp">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12a7 7 0 0 1 11.95-4.95A7 7 0 0 1 8.8 18.3L5 19l.7-3.7A6.9 6.9 0 0 1 5 12z"/><path d="M9.5 9.5c.4 2 2 3.6 4 4l1-1"/></svg>
+          WhatsApp
+        </a>
+        <a href="mailto:utherndev@gmail.com" aria-label="Send email">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6.5h16v11H4z"/><path d="m4 7 8 6 8-6"/></svg>
+          Email
+        </a>
+        <a href="tel:+60182174993" aria-label="Call phone number">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 4h3l1 4-2 1a10 10 0 0 0 5 5l1-2 4 1v3a3 3 0 0 1-3 3A13 13 0 0 1 5 7a3 3 0 0 1 3-3z"/></svg>
+          Phone
+        </a>
+        <a href="https://www.linkedin.com/in/uthern-su-tin-924733177/" target="_blank" rel="noopener" aria-label="View LinkedIn profile">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.5 10v8"/><path d="M6.5 6v.1"/><path d="M11 18v-8"/><path d="M11 13.5c0-2 1.3-3.5 3.4-3.5S18 11.5 18 14v4"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Uthern93" target="_blank" rel="noopener" aria-label="View GitHub profile">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M9 19c-4 1.2-4-2-5.5-2.5"/><path d="M15 22v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6A4.6 4.6 0 0 0 18.7 7c.1-.3.5-1.7-.2-3.5 0 0-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6 0C6.6 3.2 5.5 3.5 5.5 3.5 4.8 5.3 5.2 6.7 5.3 7A4.6 4.6 0 0 0 4 10.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V22"/></svg>
+          GitHub
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>
+      <svg aria-hidden="true" viewBox="0 0 20 20">
+        <path fill="currentColor" d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10S0 15.523 0 10S4.477 0 10 0m0 1.395a8.605 8.605 0 1 0 0 17.21a8.605 8.605 0 0 0 0-17.21m.16 3.256c1.08 0 2.117.303 3.003.864a.698.698 0 0 1-.745 1.179a4.2 4.2 0 0 0-2.257-.647c-2.278 0-4.114 1.775-4.114 3.953s1.836 3.953 4.114 3.953c.801 0 1.567-.22 2.224-.627a.698.698 0 0 1 .735 1.187a5.6 5.6 0 0 1-2.96.836c-3.037 0-5.509-2.39-5.509-5.349s2.472-5.349 5.51-5.349"></path>
+      </svg>
+      2026 Uthern. All Right Reserved
+    </span>
+  </footer>
+
+  <a class="back-to-top" href="#home" aria-label="Back to top" data-back-top>
+    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6"/><path d="M12 8v12"/></svg>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
