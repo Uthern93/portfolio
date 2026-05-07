@@ -3,10 +3,7 @@ const nav = document.querySelector("[data-nav]");
 const navToggle = document.querySelector("[data-nav-toggle]");
 const heroSection = document.querySelector("#home");
 const backTopButton = document.querySelector("[data-back-top]");
-const revealSections = [
-  ...document.querySelectorAll("main > section"),
-  document.querySelector(".site-footer"),
-].filter(Boolean);
+const revealSections = [...document.querySelectorAll("main > section")];
 const navLinks = [...document.querySelectorAll(".site-nav a")];
 const sections = navLinks
   .map((link) => document.querySelector(link.getAttribute("href")))
@@ -117,20 +114,19 @@ const canvas = document.getElementById("systemCanvas");
 const context = canvas.getContext("2d");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const glowShapes = [
-  { x: 0.24, y: 0.31, r: 86, color: "rgba(87, 199, 133, 0.26)", speed: 1100 },
-  { x: 0.72, y: 0.24, r: 118, color: "rgba(27, 84, 72, 0.18)", speed: 1350 },
-  { x: 0.62, y: 0.72, r: 96, color: "rgba(199, 160, 71, 0.16)", speed: 1250 },
-  { x: 0.29, y: 0.78, r: 72, color: "rgba(230, 227, 227, 0.5)", speed: 1000 },
+const editorLines = [
+  { indent: 0, text: "const solve = async (problem) => {", color: "#1B5448" },
+  { indent: 1, text: "const workflow = mapNeeds(problem);", color: "#65716e" },
+  { indent: 1, text: "const system = build(workflow);", color: "#65716e" },
+  { indent: 1, text: "return ship(system);", color: "#c7a047" },
+  { indent: 0, text: "};", color: "#1B5448" },
 ];
 
-const floatingDots = [
-  { x: 0.18, y: 0.46, r: 4.5, delay: 0 },
-  { x: 0.35, y: 0.2, r: 3.5, delay: 1.4 },
-  { x: 0.53, y: 0.36, r: 5.2, delay: 2.2 },
-  { x: 0.76, y: 0.48, r: 4, delay: 3.2 },
-  { x: 0.47, y: 0.76, r: 3.8, delay: 4.3 },
-  { x: 0.82, y: 0.72, r: 5, delay: 5.1 },
+const floatingSnippets = [
+  { x: 0.18, y: 0.24, text: "<ui />", delay: 0 },
+  { x: 0.76, y: 0.22, text: "api.ok", delay: 1.2 },
+  { x: 0.22, y: 0.78, text: "git push", delay: 2.4 },
+  { x: 0.78, y: 0.75, text: "deploy()", delay: 3.6 },
 ];
 
 const resizeCanvas = () => {
@@ -155,64 +151,82 @@ const roundedRect = (x, y, width, height, radius) => {
   context.closePath();
 };
 
-const drawGlow = (x, y, radius, color) => {
-  const gradient = context.createRadialGradient(x, y, 0, x, y, radius);
-  gradient.addColorStop(0, color);
-  gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-
-  context.beginPath();
-  context.arc(x, y, radius, 0, Math.PI * 2);
-  context.fillStyle = gradient;
-  context.fill();
-};
-
-const drawWave = (time, offset, alpha) => {
+const drawEditor = (time) => {
   const width = canvas.clientWidth;
   const height = canvas.clientHeight;
-  const amplitude = height * 0.035;
-  const baseline = height * offset;
-
-  context.beginPath();
-  context.moveTo(-20, baseline);
-
-  for (let x = -20; x <= width + 20; x += 28) {
-    const y = baseline + Math.sin(x / 72 + time / 1400) * amplitude;
-    context.lineTo(x, y);
-  }
-
-  context.strokeStyle = `rgba(27, 84, 72, ${alpha})`;
-  context.lineWidth = 1.5;
-  context.stroke();
-};
-
-const drawOutcomeCard = (time) => {
-  const width = canvas.clientWidth;
-  const height = canvas.clientHeight;
-  const cardWidth = Math.min(220, width * 0.48);
-  const cardHeight = 96;
+  const cardWidth = Math.min(430, width * 0.78);
+  const cardHeight = Math.min(270, height * 0.62);
   const x = width / 2 - cardWidth / 2;
-  const y = height / 2 - cardHeight / 2 + (reduceMotion ? 0 : Math.sin(time / 1300) * 5);
+  const y = height / 2 - cardHeight / 2 + (reduceMotion ? 0 : Math.sin(time / 1300) * 4);
 
-  roundedRect(x - 10, y - 10, cardWidth + 20, cardHeight + 20, 26);
-  context.fillStyle = "rgba(27, 84, 72, 0.06)";
+  roundedRect(x - 12, y - 12, cardWidth + 24, cardHeight + 24, 28);
+  context.fillStyle = "rgba(27, 84, 72, 0.07)";
   context.fill();
 
-  roundedRect(x, y, cardWidth, cardHeight, 20);
-  context.fillStyle = "rgba(255, 255, 255, 0.82)";
+  roundedRect(x, y, cardWidth, cardHeight, 22);
+  context.fillStyle = "rgba(255, 255, 255, 0.9)";
   context.fill();
   context.lineWidth = 1.5;
-  context.strokeStyle = "rgba(255, 255, 255, 0.84)";
+  context.strokeStyle = "rgba(27, 84, 72, 0.16)";
+  context.stroke();
+
+  ["#ff6b6b", "#c7a047", "#57c785"].forEach((color, index) => {
+    context.beginPath();
+    context.arc(x + 24 + index * 18, y + 25, 5, 0, Math.PI * 2);
+    context.fillStyle = color;
+    context.fill();
+  });
+
+  context.fillStyle = "#65716e";
+  context.font = "700 11px JetBrains Mono, Consolas, monospace";
+  context.textAlign = "left";
+  context.textBaseline = "middle";
+  context.fillText("developer-workspace.js", x + 88, y + 25);
+
+  editorLines.forEach((line, index) => {
+    const visible = reduceMotion ? editorLines.length : Math.min(editorLines.length, Math.floor((time / 520) % 8));
+    if (index > visible) return;
+
+    const lineY = y + 70 + index * 28;
+    context.fillStyle = "rgba(27, 84, 72, 0.22)";
+    context.font = "600 12px JetBrains Mono, Consolas, monospace";
+    context.fillText(String(index + 1).padStart(2, "0"), x + 24, lineY);
+
+    context.fillStyle = line.color;
+    context.font = "700 13px JetBrains Mono, Consolas, monospace";
+    context.fillText(`${"  ".repeat(line.indent)}${line.text}`, x + 62, lineY);
+  });
+
+  const terminalY = y + cardHeight - 58;
+  roundedRect(x + 22, terminalY, cardWidth - 44, 34, 12);
+  context.fillStyle = "rgba(16, 53, 46, 0.92)";
+  context.fill();
+  context.fillStyle = "#ffffff";
+  context.font = "700 12px JetBrains Mono, Consolas, monospace";
+  const cursor = Math.floor(time / 450) % 2 === 0 ? "_" : "";
+  context.fillText(`> npm run build ${cursor}`, x + 40, terminalY + 18);
+};
+
+const drawSnippet = (snippet, time) => {
+  const width = canvas.clientWidth;
+  const height = canvas.clientHeight;
+  const drift = reduceMotion ? 0 : Math.sin(time / 900 + snippet.delay) * 10;
+  const x = snippet.x * width;
+  const y = snippet.y * height + drift;
+  const pillWidth = Math.max(88, context.measureText(snippet.text).width + 30);
+
+  roundedRect(x - pillWidth / 2, y - 17, pillWidth, 34, 12);
+  context.fillStyle = "rgba(255, 255, 255, 0.78)";
+  context.fill();
+  context.lineWidth = 1.2;
+  context.strokeStyle = "rgba(27, 84, 72, 0.16)";
   context.stroke();
 
   context.fillStyle = "#1B5448";
-  context.font = "800 15px Plus Jakarta Sans, Arial, sans-serif";
+  context.font = "800 11px JetBrains Mono, Consolas, monospace";
   context.textAlign = "center";
   context.textBaseline = "middle";
-  context.fillText("Solve. Build. Improve.", width / 2, y + 36);
-
-  context.fillStyle = "#65716e";
-  context.font = "700 11px Plus Jakarta Sans, Arial, sans-serif";
-  context.fillText("Business-focused digital solutions", width / 2, y + 61);
+  context.fillText(snippet.text, x, y + 1);
 };
 
 const draw = (time = 0) => {
@@ -220,48 +234,17 @@ const draw = (time = 0) => {
   const height = canvas.clientHeight;
   context.clearRect(0, 0, width, height);
 
-  glowShapes.forEach((shape, index) => {
-    const movement = reduceMotion ? 0 : Math.sin(time / shape.speed + index) * 18;
-    drawGlow(
-      shape.x * width + movement,
-      shape.y * height + movement * 0.45,
-      shape.r,
-      shape.color
-    );
-  });
+  context.fillStyle = "rgba(27, 84, 72, 0.045)";
+  for (let x = 28; x < width; x += 44) {
+    for (let y = 28; y < height; y += 44) {
+      context.beginPath();
+      context.arc(x, y, 1.4, 0, Math.PI * 2);
+      context.fill();
+    }
+  }
 
-  drawWave(time, 0.34, 0.08);
-  drawWave(time + 600, 0.56, 0.1);
-  drawWave(time + 1200, 0.72, 0.07);
-
-  context.beginPath();
-  context.ellipse(width / 2, height / 2, width * 0.31, height * 0.22, -0.25, 0, Math.PI * 2);
-  context.strokeStyle = "rgba(27, 84, 72, 0.14)";
-  context.lineWidth = 1.5;
-  context.stroke();
-
-  context.beginPath();
-  context.ellipse(width / 2, height / 2, width * 0.22, height * 0.31, 0.55, 0, Math.PI * 2);
-  context.strokeStyle = "rgba(199, 160, 71, 0.16)";
-  context.stroke();
-
-  floatingDots.forEach((dot, index) => {
-    const drift = reduceMotion ? 0 : Math.sin(time / 900 + dot.delay) * 14;
-    const x = dot.x * width + drift;
-    const y = dot.y * height + Math.cos(time / 1000 + dot.delay) * 10;
-
-    context.beginPath();
-    context.arc(x, y, dot.r + 7, 0, Math.PI * 2);
-    context.fillStyle = "rgba(27, 84, 72, 0.06)";
-    context.fill();
-
-    context.beginPath();
-    context.arc(x, y, dot.r, 0, Math.PI * 2);
-    context.fillStyle = index % 2 === 0 ? "#1B5448" : "#c7a047";
-    context.fill();
-  });
-
-  drawOutcomeCard(time);
+  floatingSnippets.forEach((snippet) => drawSnippet(snippet, time));
+  drawEditor(time);
 
   if (!reduceMotion) {
     requestAnimationFrame(draw);
