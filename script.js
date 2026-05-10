@@ -77,6 +77,19 @@ syncHeader();
 
 const cursorRing = document.querySelector("[data-cursor-ring]");
 const supportsCustomCursor = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const profileCard = document.querySelector("[data-profile-card]");
+const cardFlipButtons = [...document.querySelectorAll("[data-card-flip]")];
+
+cardFlipButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (!profileCard) return;
+
+    const isFlipped = profileCard.classList.toggle("is-flipped");
+    cardFlipButtons.forEach((flipButton) => {
+      flipButton.setAttribute("aria-expanded", String(isFlipped));
+    });
+  });
+});
 
 if (cursorRing && supportsCustomCursor) {
   const cursor = {
@@ -111,7 +124,7 @@ if (cursorRing && supportsCustomCursor) {
 }
 
 const canvas = document.getElementById("systemCanvas");
-const context = canvas.getContext("2d");
+const context = canvas ? canvas.getContext("2d") : null;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const editorLines = [
@@ -251,9 +264,11 @@ const draw = (time = 0) => {
   }
 };
 
-resizeCanvas();
-draw();
-window.addEventListener("resize", () => {
+if (canvas && context) {
   resizeCanvas();
   draw();
-});
+  window.addEventListener("resize", () => {
+    resizeCanvas();
+    draw();
+  });
+}
